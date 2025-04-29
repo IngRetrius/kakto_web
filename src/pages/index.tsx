@@ -1,115 +1,80 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import Head from 'next/head';
+import Hero from '@/components/sections/Hero';
+import ProjectGrid from '@/components/sections/ProjectGrid';
+import { getAllProjects } from '@/lib/api';
+import { ProjectType } from '@/types/project';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+interface HomeProps {
+  featuredProjects: ProjectType[];
+}
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+export default function Home({ featuredProjects }: HomeProps) {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Head>
+        <title>Kakto Arquitectos | Diseño Arquitectónico Moderno</title>
+        <meta name="description" content="Estudio de arquitectura especializado en diseños modernos, sostenibles e innovadores. Proyectos residenciales, comerciales y públicos." />
+      </Head>
+
+      <Hero 
+        title="Diseñamos espacios que inspiran"
+        subtitle="Soluciones arquitectónicas innovadoras y sostenibles para proyectos residenciales, comerciales y públicos."
+        image="/images/hero-background.jpg"
+      />
+
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-800 mb-4">Proyectos Destacados</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Descubre algunas de nuestras obras más representativas en diferentes categorías.</p>
+          </div>
+          
+          <ProjectGrid projects={featuredProjects} />
+          
+          <div className="mt-12 text-center">
+            <Link href="/projects">
+              <Button variant="outline">Ver todos los proyectos</Button>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="md:flex md:items-center md:justify-between">
+            <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-navy-800 mb-4">Nuestra Filosofía</h2>
+              <p className="text-lg text-gray-600 mb-6">
+                En Kakto Arquitectos creemos que la arquitectura debe responder a las necesidades humanas, al contexto y al medio ambiente. Cada proyecto es una oportunidad para crear espacios funcionales, estéticos y sostenibles.
+              </p>
+              <p className="text-lg text-gray-600 mb-6">
+                Nuestro enfoque combina innovación técnica con sensibilidad estética para diseñar espacios que mejoren la calidad de vida de las personas que los habitan.
+              </p>
+              <Link href="/about">
+                <Button variant="primary">Conoce más sobre nosotros</Button>
+              </Link>
+            </div>
+            <div className="md:w-1/2 relative h-96">
+              {/* Aquí se insertaría una imagen representativa del estudio */}
+              <div className="bg-gray-300 h-full w-full rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
+}
+
+export async function getStaticProps() {
+  const allProjects = await getAllProjects();
+  const featuredProjects = allProjects.slice(0, 3); // Mostrar solo 3 proyectos destacados
+  
+  return {
+    props: {
+      featuredProjects,
+    },
+    revalidate: 60, // Regenerar la página cada 60 segundos si hay cambios
+  };
 }

@@ -1,26 +1,204 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-navy-800: #0F3460;
+  --color-navy-900: #0A2647;
+  --color-orange-400: #FF865E;
+  --color-orange-500: #FF6B4A;
+  --color-orange-600: #E5573D;
+  --transition-standard: all 0.3s ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Estilos base */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply text-gray-700 bg-white;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-navy-800;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl mb-6;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl mb-5;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl mb-4;
+  }
+  
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  a {
+    @apply text-navy-800 hover:text-orange-500 transition duration-300;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Componentes personalizados */
+@layer components {
+  /* Botones */
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-orange-500 hover:bg-orange-600 text-white focus:ring-orange-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-navy-800 hover:bg-navy-900 text-white focus:ring-navy-800;
+  }
+  
+  .btn-outline {
+    @apply btn border border-navy-800 text-navy-800 hover:bg-navy-50 focus:ring-navy-800;
+  }
+  
+  /* Tarjetas */
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-lg;
+  }
+  
+  .card-body {
+    @apply p-5;
+  }
+  
+  /* Tags de categorías */
+  .category-tag {
+    @apply inline-block px-3 py-1 text-sm font-medium text-white rounded-full;
+  }
+  
+  .category-tag-commercial {
+    @apply bg-orange-500;
+  }
+  
+  .category-tag-residential {
+    @apply bg-orange-500;
+  }
+  
+  .category-tag-public {
+    @apply bg-orange-500;
+  }
+  
+  /* Secciones */
+  .section {
+    @apply py-16 md:py-20;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-navy-800 mb-2 text-center;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-gray-600 mb-10 text-center max-w-3xl mx-auto;
+  }
+}
+
+/* Estilos para el collage de proyectos */
+.project-grid {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-1;
+  height: calc(100vh - 80px); /* Ajusta según el tamaño de tu header */
+}
+
+.project-item {
+  @apply relative overflow-hidden;
+  height: 50vh;
+}
+
+.project-item.featured {
+  @apply col-span-2 row-span-2;
+  height: 100vh;
+}
+
+.project-image {
+  @apply w-full h-full object-cover transition-transform duration-700;
+}
+
+.project-item:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center opacity-0 transition-all duration-300;
+}
+
+.project-item:hover .project-overlay {
+  @apply bg-opacity-40 opacity-100;
+}
+
+.project-title {
+  @apply text-white text-xl md:text-2xl font-bold transform translate-y-4 transition-transform duration-300 text-center px-4;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.project-item:hover .project-title {
+  transform: translateY(0);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Header transparente */
+.header-transparent {
+  @apply bg-transparent;
+}
+
+.header-transparent .nav-link {
+  @apply text-white;
+}
+
+.header-scrolled {
+  @apply bg-white shadow-md;
+}
+
+.header-scrolled .nav-link {
+  @apply text-navy-800;
+}
+
+/* Mejoras para formularios */
+input, textarea, select {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+/* Estilos para el footer */
+.footer {
+  @apply bg-navy-800 text-white py-10;
+}
+
+.footer a {
+  @apply text-white opacity-80 hover:opacity-100 hover:text-orange-400 transition-all duration-300;
 }
