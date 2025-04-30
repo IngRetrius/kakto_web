@@ -1,17 +1,10 @@
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Layout from '@/components/layout/Layout';
-import { Inter } from 'next/font/google';
-
-// Configuración de fuente
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={inter.className}>
+    <main className="font-quicksand">
       <Layout>
         <Component {...pageProps} />
       </Layout>

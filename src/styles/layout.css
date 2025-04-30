@@ -1,0 +1,346 @@
+/* Secciones */
+.section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: 768px) {
+    .section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  
+  .section-title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+    }
+  }
+  
+  .section-title-light {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: #6b7280;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Header transparente */
+  .header-transparent {
+    background-color: transparent;
+  }
+  
+  .header-transparent .nav-link {
+    color: var(--color-text-light);
+  }
+  
+  .header-scrolled {
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .header-scrolled .nav-link {
+    color: var(--color-text);
+  }
+  
+  /* Estilos para el footer */
+  .footer {
+    background-color: var(--color-black);
+    color: var(--color-text-light);
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+    z-index: 20;
+  }
+  
+  .footer a {
+    color: var(--color-text-light);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+  
+  .footer a:hover {
+    opacity: 1;
+    color: var(--color-red);
+  }
+  
+  /* Estilos para el collage de proyectos - ACTUALIZADO PARA PANTALLA COMPLETA */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+    height: calc(100vh - 80px); /* Altura original */
+    width: 100vw; /* Ancho completo */
+    margin-left: calc(-50vw + 50%); /* Centrado negativo para pantalla completa */
+    margin-right: calc(-50vw + 50%);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 5rem; /* Espacio suficiente para evitar superposición con footer */
+    padding-bottom: 2rem; /* Padding adicional en la parte inferior */
+  }
+  
+  @media (min-width: 768px) {
+    .project-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .project-item {
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+  }
+  
+  .project-item.featured {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 100vh;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  
+  .project-item:hover .project-image {
+    transform: scale(1.05);
+  }
+  
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .project-item:hover .project-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+  }
+  
+  .project-title {
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    transform: translateY(1rem);
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (min-width: 768px) {
+    .project-title {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+  
+  .project-item:hover .project-title {
+    transform: translateY(0);
+  }
+  
+  /* Estilos para la sección de hero */
+  .hero-title {
+    color: white;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.75rem;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .hero-subtitle {
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-subtitle {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      max-width: 42rem;
+    }
+  }
+  
+  /* Mejoras de estilo para la sección de contacto */
+  .contact-info-card {
+    background-color: var(--color-blue);
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-red);
+  }
+  
+  .contact-info-icon {
+    color: var(--color-red);
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+  }
+  
+  .social-icon-button {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-gray-100);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .social-icon-button:hover {
+    background-color: var(--color-gray-200);
+  }
+  
+  /* Estilos para la página de about */
+  .team-section {
+    background-color: var(--color-gray-50);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .team-photo {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .team-photo:hover {
+    transform: scale(1.05);
+  }
+  
+  .founder-profile {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .founder-image {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 4px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .founder-profile:hover .founder-image {
+    border-color: var(--color-red);
+  }
+  
+  .mission-vision-section {
+    background-color: var(--color-gray-50);
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+  
+  .mission-vision-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--color-blue), var(--color-red));
+  }
+  
+  .values-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid var(--color-gray-100);
+    transition: all 0.3s ease;
+  }
+  
+  .values-card:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transform: translateY(-0.25rem);
+  }
+  
+  /* Ajustes para todas las páginas principales */
+  .page-container {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+  }
+  
+  .page-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .page-title {
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+  
+  .page-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: var(--color-gray-600);
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 3rem;
+  }

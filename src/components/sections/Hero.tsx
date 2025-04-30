@@ -28,13 +28,13 @@ const Hero: React.FC<HeroProps> = ({
           style={{ objectFit: 'cover' }}
           priority
         />
-        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
       
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center md:text-left text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6">{title}</h1>
-          <p className="text-xl md:text-2xl mb-8 md:max-w-2xl">{subtitle}</p>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center md:text-left">
+          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 md:mb-6">{title}</h1>
+          <p className="text-white text-xl md:text-2xl mb-8 md:max-w-2xl">{subtitle}</p>
           <Link href={ctaLink}>
             <Button variant="primary" size="lg">
               {ctaText}

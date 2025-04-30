@@ -1,117 +1,21 @@
+/* Importaciones de archivos modularizados */
+@import './variables.css';
+@import './base.css';
+@import './components.css';
+@import './layout.css';
+@import './utilities.css';
+
+/* Directivas de Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-navy-800: #0F3460;
-  --color-navy-900: #0A2647;
-  --color-orange-400: #FF865E;
-  --color-orange-500: #FF6B4A;
-  --color-orange-600: #E5573D;
-  --transition-standard: all 0.3s ease;
-}
+/* Estilos globales adicionales (mantener al mínimo, preferir usar archivos modulares) */
 
-/* Estilos base */
-@layer base {
-  html {
-    @apply scroll-smooth;
-  }
-  
-  body {
-    @apply text-gray-700 bg-white;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-navy-800;
-  }
-  
-  h1 {
-    @apply text-4xl md:text-5xl mb-6;
-  }
-  
-  h2 {
-    @apply text-3xl md:text-4xl mb-5;
-  }
-  
-  h3 {
-    @apply text-2xl md:text-3xl mb-4;
-  }
-  
-  p {
-    @apply mb-4 leading-relaxed;
-  }
-  
-  a {
-    @apply text-navy-800 hover:text-orange-500 transition duration-300;
-  }
-}
-
-/* Componentes personalizados */
-@layer components {
-  /* Botones */
-  .btn {
-    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-  
-  .btn-primary {
-    @apply btn bg-orange-500 hover:bg-orange-600 text-white focus:ring-orange-500;
-  }
-  
-  .btn-secondary {
-    @apply btn bg-navy-800 hover:bg-navy-900 text-white focus:ring-navy-800;
-  }
-  
-  .btn-outline {
-    @apply btn border border-navy-800 text-navy-800 hover:bg-navy-50 focus:ring-navy-800;
-  }
-  
-  /* Tarjetas */
-  .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-lg;
-  }
-  
-  .card-body {
-    @apply p-5;
-  }
-  
-  /* Tags de categorías */
-  .category-tag {
-    @apply inline-block px-3 py-1 text-sm font-medium text-white rounded-full;
-  }
-  
-  .category-tag-commercial {
-    @apply bg-orange-500;
-  }
-  
-  .category-tag-residential {
-    @apply bg-orange-500;
-  }
-  
-  .category-tag-public {
-    @apply bg-orange-500;
-  }
-  
-  /* Secciones */
-  .section {
-    @apply py-16 md:py-20;
-  }
-  
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-navy-800 mb-2 text-center;
-  }
-  
-  .section-subtitle {
-    @apply text-lg text-gray-600 mb-10 text-center max-w-3xl mx-auto;
-  }
-}
-
-/* Estilos para el collage de proyectos */
+/* Estilos para el collage de proyectos que pueden requerir clases específicas de Tailwind */
 .project-grid {
   @apply grid grid-cols-2 md:grid-cols-3 gap-1;
-  height: calc(100vh - 80px); /* Ajusta según el tamaño de tu header */
+  height: calc(100vh - 80px);
 }
 
 .project-item {
@@ -149,7 +53,7 @@
   transform: translateY(0);
 }
 
-/* Animaciones */
+/* Estilos de animación que podrían requerir clases específicas de Tailwind */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -168,37 +72,50 @@
   animation: slideUp 0.5s ease-out;
 }
 
-/* Header transparente */
-.header-transparent {
-  @apply bg-transparent;
+/* Transiciones que podrían requerir clases específicas de Tailwind */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
-.header-transparent .nav-link {
-  @apply text-white;
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
 }
 
-.header-scrolled {
-  @apply bg-white shadow-md;
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
-.header-scrolled .nav-link {
-  @apply text-navy-800;
+.transition-shadow {
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
-/* Mejoras para formularios */
-input, textarea, select {
-  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent;
+/* Transformaciones que podrían requerir clases específicas de Tailwind */
+.transform {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-button {
-  @apply cursor-pointer;
+.hover\:scale-105:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: var(--tw-transform);
 }
 
-/* Estilos para el footer */
-.footer {
-  @apply bg-navy-800 text-white py-10;
-}
-
-.footer a {
-  @apply text-white opacity-80 hover:opacity-100 hover:text-orange-400 transition-all duration-300;
+.hover\:-translate-y-1:hover {
+  --tw-translate-y: -0.25rem;
+  transform: var(--tw-transform);
 }

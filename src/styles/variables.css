@@ -1,0 +1,25 @@
+:root {
+    /* Colores principales */
+    --color-blue: #2f3d4d;
+    --color-blue-dark: #263442;
+    --color-red: #e94c46;
+    --color-red-light: #ef5f59;
+    --color-red-dark: #d43f39;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    
+    /* Grises neutros */
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-700: #374151;
+    
+    /* Variables funcionales */
+    --color-primary: var(--color-red);
+    --color-secondary: var(--color-blue);
+    --color-text: var(--color-blue);
+    --color-text-light: var(--color-white);
+    
+    /* Transiciones */
+    --transition-standard: all 0.3s ease;
+  }

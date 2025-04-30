@@ -3,21 +3,21 @@ import { getAllProjects } from '@/lib/api';
 import { ProjectType } from '@/types/project';
 import ProjectGrid from '@/components/sections/ProjectGrid';
 
-interface HomeProps {
+interface ProjectsPageProps {
   projects: ProjectType[];
 }
 
-export default function Home({ projects }: HomeProps) {
+export default function ProjectsPage({ projects }: ProjectsPageProps) {
   return (
     <>
       <Head>
-        <title>Kakto Arquitectos | Diseño Arquitectónico Moderno</title>
-        <meta name="description" content="Estudio de arquitectura especializado en diseños modernos, sostenibles e innovadores. Proyectos residenciales, comerciales y públicos." />
+        <title>Proyectos | Kakto Arquitectos</title>
+        <meta name="description" content="Proyectos arquitectónicos de Kakto Arquitectos" />
       </Head>
 
-      <main className="pt-0">
+      <div className="pt-20 overflow-hidden"> {/* Solo padding-top para espacio bajo el header */}
         <ProjectGrid projects={projects} />
-      </main>
+      </div>
     </>
   );
 }
@@ -29,6 +29,6 @@ export async function getStaticProps() {
     props: {
       projects: allProjects,
     },
-    revalidate: 60, // Regenerar la página cada 60 segundos si hay cambios
+    revalidate: 60,
   };
 }

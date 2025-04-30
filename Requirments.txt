@@ -1,0 +1,29 @@
+1. actualizar colores principales:
+Azul : 2f3d4d
+Rojizo: e94c46
+2. Actualizar tipo de letra
+Quicksand bold títulos 
+Quicksand book resto de información
+3. Dejar header blanco al seleccionar usar rojizo
+4.Footer:
+	Referencia a mandarina.https://mandarinaproyectos.com/
+	Averiguar referencia fondo en svg.
+5.Contacto:
+	https://www.linkedin.com/company/kaktoestudio
+	https://www.behance.net/kaktoestudio
+	https://www.instagram.com/kakto.arq/?hl=es-la
+	kaktoarquitectos@gmail.com
+	+573182134982
+	Bogotá, Colombia
+6. Servicios:
+	Diseño
+7. Sobre nosotros.
+	Tipo blog
+	2 fotos de los dos arquitectos en círculos iteractivos
+	Con un párrafo pequeño de lo que hace cada uno
+Que aspira Kakto
+8. Contacto
+	Formulario sencillo que dirija al correo 
+9.Nuestra filosofía sacarla del manual
+				
+	

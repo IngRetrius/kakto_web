@@ -1,18 +1,23 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
-      "./src/**/*.{js,ts,jsx,tsx}",
+      "./src/pages/**/*.{js,ts,jsx,tsx}",
+      "./src/components/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
       extend: {
         colors: {
-          'navy': {
-            800: '#0F3460',
-            900: '#0A2647',
+          blue: {
+            DEFAULT: '#2f3d4d',
+            dark: '#263442',
           },
-          'orange': {
-            500: '#FF6B4A',
+          red: {
+            DEFAULT: '#e94c46',
+            light: '#ef5f59',
+            dark: '#d43f39',
           },
+        },
+        fontFamily: {
+          'quicksand': ['Quicksand', 'sans-serif'],
         },
       },
     },

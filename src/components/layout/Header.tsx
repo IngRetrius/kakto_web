@@ -27,18 +27,18 @@ const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
 
   const headerClasses = `fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-10 ${
     transparent && !scrolled 
-      ? 'bg-transparent' 
+      ? 'bg-black bg-opacity-30' 
       : 'bg-white shadow-sm'
   }`;
 
   const linkClasses = `px-2 py-1 text-base font-medium transition duration-200 ${
-    transparent && !scrolled ? 'text-white' : 'text-gray-700'
+    transparent && !scrolled ? 'text-white' : 'text-[#2f3d4d]'
   }`;
 
   const activeLinkClasses = `px-2 py-1 text-base font-medium transition duration-200 ${
     transparent && !scrolled 
-      ? 'text-orange-400 border-b-2 border-orange-400' 
-      : 'text-orange-500 border-b-2 border-orange-500'
+      ? 'text-[#e94c46] border-b-2 border-[#e94c46]' 
+      : 'text-[#e94c46] border-b-2 border-[#e94c46]'
   }`;
 
   const logoContainerClasses = `relative h-14 w-40 ${
@@ -65,8 +65,7 @@ const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
           {[
             { name: 'Inicio', path: '/' },
             { name: 'Proyectos', path: '/projects' },
-            { name: 'Servicios', path: '/services' },
-            { name: 'Sobre Nosotros', path: '/about' },
+            { name: 'Nosotros', path: '/about' },
             { name: 'Contacto', path: '/contact' },
           ].map((item) => (
             <Link 
@@ -81,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
 
         {/* Mobile Menu Button */}
         <button 
-          className={`md:hidden ${transparent && !scrolled ? 'text-white' : 'text-gray-800'}`}
+          className={`md:hidden ${transparent && !scrolled ? 'text-white' : 'text-[#2f3d4d]'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -100,14 +99,13 @@ const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
               {[
                 { name: 'Inicio', path: '/' },
                 { name: 'Proyectos', path: '/projects' },
-                { name: 'Servicios', path: '/services' },
-                { name: 'Sobre Nosotros', path: '/about' },
+                { name: 'Nosotros', path: '/about' },
                 { name: 'Contacto', path: '/contact' },
               ].map((item) => (
                 <Link 
                   href={item.path} 
                   key={item.name}
-                  className={`px-2 py-2 text-lg ${router.pathname === item.path ? 'text-orange-500 font-bold' : 'text-gray-700'}`}
+                  className={`px-2 py-2 text-lg ${router.pathname === item.path ? 'text-[#e94c46] font-bold' : 'text-[#2f3d4d]'}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

@@ -13,8 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile = false, closeMenu }) 
   const navItems = [
     { name: 'Inicio', path: '/' },
     { name: 'Proyectos', path: '/projects' },
-    { name: 'Servicios', path: '/services' },
-    { name: 'Sobre Nosotros', path: '/about' },
+    { name: 'Nosotros', path: '/about' },
     { name: 'Contacto', path: '/contact' },
   ];
 
@@ -32,8 +31,8 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile = false, closeMenu }) 
           key={item.name}
           className={`px-2 py-1 text-base font-medium transition duration-200 ${
             router.pathname === item.path
-            ? 'text-orange-500 border-b-2 border-orange-500'
-            : 'text-gray-700 hover:text-orange-500'
+            ? 'text-[#e94c46] border-b-2 border-[#e94c46]'
+            : 'text-[#2f3d4d] hover:text-[#e94c46]'
           }`}
           onClick={handleClick}
         >
