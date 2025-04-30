@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
       : 'text-[#e94c46] border-b-2 border-[#e94c46]'
   }`;
 
-  const logoContainerClasses = `relative h-14 w-40 ${
+  const logoContainerClasses = `relative h-22 w-40 ${
     transparent && !scrolled ? 'filter brightness-0 invert' : ''
   }`;
 
