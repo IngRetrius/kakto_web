@@ -16,6 +16,7 @@
 .project-grid {
   @apply grid grid-cols-2 md:grid-cols-3 gap-1;
   height: calc(100vh - 80px);
+  margin-bottom: 3rem; /* Añadido margen inferior */
 }
 
 .project-item {
@@ -51,6 +52,19 @@
 
 .project-item:hover .project-title {
   transform: translateY(0);
+}
+
+/* Estilo para botones de ver todos los proyectos */
+.projects-button-container {
+  @apply text-center mt-24 py-4; /* Aumentado el margen superior y añadido padding */
+}
+
+.projects-button {
+  @apply inline-flex items-center justify-center px-8 py-3 text-lg font-medium rounded border-2 border-[#e94c46] text-[#e94c46] bg-white shadow-md transition-all duration-300;
+}
+
+.projects-button:hover {
+  @apply bg-gray-50 shadow-lg;
 }
 
 /* Estilos de animación que podrían requerir clases específicas de Tailwind */

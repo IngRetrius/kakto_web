@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
       : 'text-[#e94c46] border-b-2 border-[#e94c46]'
   }`;
 
-  const logoContainerClasses = `relative h-22 w-40 ${
+  const logoContainerClasses = `relative h-20 w-40 ${
     transparent && !scrolled ? 'filter brightness-0 invert' : ''
   }`;
 
@@ -82,6 +82,7 @@ const Header: React.FC<HeaderProps> = ({ transparent = false }) => {
         <button 
           className={`md:hidden ${transparent && !scrolled ? 'text-white' : 'text-[#2f3d4d]'}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             {isMenuOpen ? (

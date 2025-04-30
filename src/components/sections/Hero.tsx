@@ -36,7 +36,7 @@ const Hero: React.FC<HeroProps> = ({
           <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 md:mb-6">{title}</h1>
           <p className="text-white text-xl md:text-2xl mb-8 md:max-w-2xl">{subtitle}</p>
           <Link href={ctaLink}>
-            <Button variant="primary" size="lg">
+            <Button variant="primary" size="lg" className="shadow-md hover:shadow-lg transition-all">
               {ctaText}
             </Button>
           </Link>

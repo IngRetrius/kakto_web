@@ -25,20 +25,23 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile = false, closeMenu }) 
 
   return (
     <nav className={`${isMobile ? 'flex flex-col space-y-3' : 'flex space-x-6'}`}>
-      {navItems.map((item) => (
-        <Link 
-          href={item.path} 
-          key={item.name}
-          className={`px-2 py-1 text-base font-medium transition duration-200 ${
-            router.pathname === item.path
-            ? 'text-[#e94c46] border-b-2 border-[#e94c46]'
-            : 'text-[#2f3d4d] hover:text-[#e94c46]'
-          }`}
-          onClick={handleClick}
-        >
-          {item.name}
-        </Link>
-      ))}
+      {navItems.map((item) => {
+        const isActive = router.pathname === item.path;
+        return (
+          <Link 
+            href={item.path} 
+            key={item.name}
+            className={`px-2 py-1 text-base font-medium transition duration-200 ${
+              isActive
+              ? 'text-[#e94c46] border-b-2 border-[#e94c46]'
+              : 'text-[#2f3d4d] hover:text-[#e94c46]'
+            }`}
+            onClick={handleClick}
+          >
+            {item.name}
+          </Link>
+        );
+      })}
     </nav>
   );
 };

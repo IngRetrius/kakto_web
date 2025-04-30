@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Button from '@/components/ui/Button';
-import Image from 'next/image';
+import LocationMap from '@/components/ui/LocationMap';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -218,57 +218,37 @@ const ContactPage = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#e94c46] opacity-10 rounded-full -mr-10 -mt-10"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#e94c46] opacity-10 rounded-full -ml-10 -mb-10"></div>
                 
-                <h2 className="text-2xl font-bold mb-6 flex items-center">
-                  <span className="bg-[#e94c46] p-1 rounded mr-2 inline-flex">
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path>
+                <div className="relative z-10 space-y-8">
+                  <div className="flex items-center text-xl font-semibold">
+                    <svg className="w-6 h-6 mr-3 text-[#e94c46]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"></path>
                     </svg>
-                  </span>
-                  Información de contacto
-                </h2>
-                
-                <div className="space-y-6 relative z-10">
-                  <div className="flex items-start border-l-2 border-[#e94c46] pl-4">
-                    <svg className="w-6 h-6 mr-3 text-[#e94c46] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
-                    </svg>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1">Dirección</h3>
-                      <p className="text-gray-300">Bogotá, Colombia</p>
-                    </div>
+                    <span>Bogotá, Colombia</span>
                   </div>
                   
-                  <div className="flex items-start border-l-2 border-[#e94c46] pl-4">
-                    <svg className="w-6 h-6 mr-3 text-[#e94c46] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <div className="flex items-center text-xl font-semibold">
+                    <svg className="w-6 h-6 mr-3 text-[#e94c46]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1">Correo electrónico</h3>
-                      <a href="mailto:kaktoarquitectos@gmail.com" className="text-gray-300 hover:text-white hover:underline transition-colors">kaktoarquitectos@gmail.com</a>
-                    </div>
+                    <a href="mailto:kaktoarquitectos@gmail.com" className="hover:text-[#e94c46] transition-colors">
+                      kaktoarquitectos@gmail.com
+                    </a>
                   </div>
                   
-                  <div className="flex items-start border-l-2 border-[#e94c46] pl-4">
-                    <svg className="w-6 h-6 mr-3 text-[#e94c46] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <div className="flex items-center text-xl font-semibold">
+                    <svg className="w-6 h-6 mr-3 text-[#e94c46]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                     </svg>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1">Teléfono</h3>
-                      <a href="tel:+573182134982" className="text-gray-300 hover:text-white hover:underline transition-colors">+57 318 213 4982</a>
-                    </div>
+                    <a href="tel:+573182134982" className="hover:text-[#e94c46] transition-colors">
+                      +57 318 213 4982
+                    </a>
                   </div>
                 </div>
                 
-                {/* Mapa estático */}
+                {/* Mapa interactivo */}
                 <div className="mt-8 rounded-lg overflow-hidden border-4 border-[#1f2a38] shadow-lg">
-                  <Image 
-                    src="/images/contact/map-bogota.jpg" 
-                    alt="Ubicación en Bogotá" 
-                    width={600} 
-                    height={300}
-                    className="w-full h-auto"
-                  />
+                  <LocationMap />
                 </div>
               </div>
               

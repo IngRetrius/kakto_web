@@ -33,9 +33,11 @@ export default function Home({ featuredProjects }: HomeProps) {
           
           <ProjectGrid projects={featuredProjects} />
           
-          <div className="mt-12 text-center">
+          <div className="mt-24 text-center">
             <Link href="/projects">
-              <Button variant="outline">Ver todos los proyectos</Button>
+              <Button variant="outline" className="shadow-md py-3 px-8 text-lg hover:shadow-lg">
+                Ver todos los proyectos
+              </Button>
             </Link>
           </div>
         </div>

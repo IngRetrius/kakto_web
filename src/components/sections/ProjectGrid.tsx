@@ -18,7 +18,7 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
   const regularProjects = projects.slice(1);
 
   return (
-    <div className="project-grid">
+    <div className="project-grid mb-8">
       {/* Proyecto destacado (más grande) */}
       <Link href={`/projects/${featuredProject.slug}`} className="project-item featured">
         <div className="relative w-full h-full">
