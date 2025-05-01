@@ -15,8 +15,12 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
         <meta name="description" content="Proyectos arquitectónicos de Kakto Arquitectos" />
       </Head>
 
-      <div className="pt-24 pb-32"> {/* Aumentar el padding inferior */}
+      <div className="projects-main pt-24">
+        {/* Primero se muestra el grid con los proyectos */}
         <ProjectGrid projects={projects} />
+        
+        {/* Este div actúa como un separador claro entre el grid y el footer */}
+        <div className="footer-separator" />
       </div>
     </>
   );

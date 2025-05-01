@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Button from '@/components/ui/Button';
-import LocationMap from '@/components/ui/LocationMap';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -212,7 +211,7 @@ const ContactPage = () => {
               </form>
             </div>
 
-            {/* Información de contacto mejorada */}
+            {/* Información de contacto mejorada - SIN MAPA */}
             <div>
               <div className="bg-[#2f3d4d] text-white p-8 rounded-lg shadow-md mb-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#e94c46] opacity-10 rounded-full -mr-10 -mt-10"></div>
@@ -221,7 +220,7 @@ const ContactPage = () => {
                 <div className="relative z-10 space-y-8">
                   <div className="flex items-center text-xl font-semibold">
                     <svg className="w-6 h-6 mr-3 text-[#e94c46]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"></path>
+                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                     </svg>
                     <span>Bogotá, Colombia</span>
                   </div>
@@ -244,11 +243,6 @@ const ContactPage = () => {
                       +57 318 213 4982
                     </a>
                   </div>
-                </div>
-                
-                {/* Mapa interactivo */}
-                <div className="mt-8 rounded-lg overflow-hidden border-4 border-[#1f2a38] shadow-lg">
-                  <LocationMap />
                 </div>
               </div>
               
@@ -299,6 +293,8 @@ const ContactPage = () => {
                   </a>
                 </div>
               </div>
+              
+
             </div>
           </div>
         </div>

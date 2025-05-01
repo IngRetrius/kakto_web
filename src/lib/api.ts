@@ -118,12 +118,12 @@ const projects: ProjectType[] = [
     completed: true,
   },
   {
-    id: '8',
+    id: '7',
     title: 'Complejo Residencial Vista Verde',
     slug: 'complejo-residencial-vista-azul',
-    coverImage: '/images/projects/project5.jpg',
+    coverImage: '/images/projects/project7.jpg',
     images: [
-      '/images/projects/project5.jpg',
+      '/images/projects/project7.jpg',
     ],
     category: 'Residencial',
     excerpt: 'Conjunto de apartamentos con vista al mar y áreas comunes de lujo.',
@@ -133,6 +133,9 @@ const projects: ProjectType[] = [
     year: 2023,
     completed: true,
   },
+  
+ 
+  
 ];
 // Funciones para obtener datos
 export async function getAllProjects(): Promise<ProjectType[]> {

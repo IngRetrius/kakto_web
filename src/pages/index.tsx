@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Hero from '@/components/sections/Hero';
-import ProjectGrid from '@/components/sections/ProjectGrid';
+import FeaturedProjects from '@/components/sections/FeaturedProjects';
 import { getAllProjects } from '@/lib/api';
 import { ProjectType } from '@/types/project';
-import Button from '@/components/ui/Button';
 import Link from 'next/link';
+import Button from '@/components/ui/Button';
 
 interface HomeProps {
   featuredProjects: ProjectType[];
@@ -24,24 +24,8 @@ export default function Home({ featuredProjects }: HomeProps) {
         image="/images/hero-background.jpg"
       />
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy-800 mb-4">Proyectos Destacados</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Descubre algunas de nuestras obras más representativas en diferentes categorías.</p>
-          </div>
-          
-          <ProjectGrid projects={featuredProjects} />
-          
-          <div className="mt-24 text-center">
-            <Link href="/projects">
-              <Button variant="outline" className="shadow-md py-3 px-8 text-lg hover:shadow-lg">
-                Ver todos los proyectos
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Componente de proyectos destacados simplificado */}
+      <FeaturedProjects projects={featuredProjects} />
 
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-10">

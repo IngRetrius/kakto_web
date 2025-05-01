@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white py-10 relative z-20">
+    <footer className="bg-black text-white py-10 relative z-30 mt-auto">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           {/* Primera columna - Enlaces */}
