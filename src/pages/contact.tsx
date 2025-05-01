@@ -51,7 +51,7 @@ const ContactPage = () => {
         subject: '',
         message: ''
       });
-    } catch (error) {
+    } catch (_error) {
       setFormStatus({
         isSubmitting: false,
         isSubmitted: false,

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ProjectType } from '@/types/project';
 import Button from '@/components/ui/Button';
 
@@ -34,11 +35,16 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
               href={`/projects/${project.slug}`} 
               className={index === 0 ? "featured-item main" : "featured-item"}
             >
-              <img
-                src={project.coverImage}
-                alt={project.title}
-                className="featured-image"
-              />
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src={project.coverImage}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="featured-image object-cover"
+                  priority={index === 0}
+                />
+              </div>
               <div className="featured-overlay">
                 <h3 className="featured-title">{project.title}</h3>
               </div>
