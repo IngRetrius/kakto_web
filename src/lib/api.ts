@@ -9,8 +9,6 @@ const projects: ProjectType[] = [
     coverImage: '/images/projects/project1.jpg',
     images: [
       '/images/projects/project1.jpg',
-      '/images/projects/project1-2.jpg',
-      '/images/projects/project1-3.jpg',
     ],
     category: 'Comercial',
     excerpt: 'Torre de oficinas moderna con fachada acristalada y espacios colaborativos.',
@@ -27,7 +25,6 @@ const projects: ProjectType[] = [
     coverImage: '/images/projects/project2.jpg',
     images: [
       '/images/projects/project2.jpg',
-      '/images/projects/project2-2.jpg',
     ],
     category: 'Residencial',
     excerpt: 'Casa contemporánea con amplia iluminación natural y conexión con la naturaleza.',
