@@ -1,0 +1,134 @@
+/* Estilos para items de proyectos */
+.project-item {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    break-inside: avoid; /* Importante: evita que las imágenes se corten entre columnas */
+    page-break-inside: avoid; /* Para navegadores antiguos */
+    display: block;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    /* Forzar visibilidad completa */
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .project-item.featured {
+    /* Hacer que el item destacado sea un poco más grande pero mantener relación de aspecto */
+    transform: scale(1.02);
+    z-index: 1;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.7s ease;
+  }
+  
+  .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+  
+  .project-item:hover .project-image {
+    transform: scale(1.05);
+  }
+  
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .project-item:hover .project-overlay {
+    background: rgba(0,0,0,0.4);
+    opacity: 1;
+  }
+  
+  .project-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 1rem;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .project-item:hover .project-title {
+    transform: translateY(0);
+  }
+  
+  /* Featured Items */
+  .featured-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: auto;
+  }
+  
+  .featured-item.main {
+    transform: scale(1.02);
+    z-index: 1;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  .featured-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.7s ease;
+  }
+  
+  .featured-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+  
+  .featured-item:hover .featured-image {
+    transform: scale(1.05);
+  }
+  
+  .featured-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+  }
+  
+  .featured-item:hover .featured-overlay {
+    opacity: 1;
+  }
+  
+  .featured-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin: 0;
+  }

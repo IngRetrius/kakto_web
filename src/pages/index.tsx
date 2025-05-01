@@ -19,7 +19,7 @@ export default function Home({ featuredProjects }: HomeProps) {
       </Head>
 
       <Hero 
-        title="Diseñamos espacios que inspiran"
+        title="DISEÑAMOS ESPACIOS QUE INSPIRAN"
         subtitle="Soluciones arquitectónicas innovadoras y sostenibles para proyectos residenciales, comerciales y públicos."
         image="/images/hero-background.jpg"
       />

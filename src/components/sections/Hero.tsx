@@ -32,14 +32,29 @@ const Hero: React.FC<HeroProps> = ({
       </div>
       
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center md:text-left">
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 md:mb-6">{title}</h1>
-          <p className="text-white text-xl md:text-2xl mb-8 md:max-w-2xl">{subtitle}</p>
-          <Link href={ctaLink}>
-            <Button variant="primary" size="lg" className="shadow-md hover:shadow-lg transition-all">
-              {ctaText}
-            </Button>
-          </Link>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 w-full flex flex-col md:flex-row items-center justify-between">
+          <div className="text-center md:text-left md:w-2/3">
+            <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 md:mb-6">{title}</h1>
+            <p className="text-white text-xl md:text-2xl mb-8 md:max-w-2xl">{subtitle}</p>
+            <Link href={ctaLink}>
+              <Button variant="primary" size="lg" className="shadow-md hover:shadow-lg transition-all">
+                {ctaText}
+              </Button>
+            </Link>
+          </div>
+          
+          {/* Logo animado */}
+          <div className="hidden md:block md:w-2/4 mt-10 md:mt-0">
+            <div className="relative w-100 h-100 mx-auto animate-float">
+              <Image 
+                src="/images/logo/kakto-logo-animated.gif" 
+                alt="Kakto Logo Animado"
+                width={800}
+                height={800}
+                className="object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

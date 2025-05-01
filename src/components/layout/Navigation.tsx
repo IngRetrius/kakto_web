@@ -14,6 +14,7 @@ const Navigation: React.FC<NavigationProps> = ({ isMobile = false, closeMenu }) 
     { name: 'Inicio', path: '/' },
     { name: 'Proyectos', path: '/projects' },
     { name: 'Nosotros', path: '/about' },
+    { name: 'Servicios', path: '/services' },
     { name: 'Contacto', path: '/contact' },
   ];
 
