@@ -5,7 +5,8 @@ import { getAllProjects, getProjectBySlug } from '@/lib/api';
 import { ProjectType } from '@/types/project';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Loader from '@/components/ui/Loader';
 
 interface ProjectDetailProps {
   project: ProjectType;
@@ -13,6 +14,26 @@ interface ProjectDetailProps {
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   const [activeImage, setActiveImage] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Mostrar loader al entrar a la página de detalle de proyecto
+    document.body.classList.add('loading');
+    
+    const timer = setTimeout(() => {
+      setLoading(false);
+      document.body.classList.remove('loading');
+    }, 1200); // 1.2 segundos de carga, un poco más rápido que la página principal de proyectos
+
+    return () => {
+      clearTimeout(timer);
+      document.body.classList.remove('loading');
+    };
+  }, []);
+
+  if (loading) {
+    return <Loader message="Cargando proyecto..." />;
+  }
 
   if (!project) {
     return <div>Proyecto no encontrado</div>;
@@ -21,7 +42,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
   return (
     <>
       <Head>
-      <title>{`${project.title} | Kakto Arquitectos`}</title>
+        <title>{`${project.title} | Kakto Arquitectos`}</title>
         <meta name="description" content={project.excerpt} />
       </Head>
 

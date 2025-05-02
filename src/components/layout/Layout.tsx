@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { useRouter } from 'next/router';
@@ -11,6 +11,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
   const isHomePage = router.pathname === '/';
   const isProjectsPage = router.pathname.startsWith('/projects');
+  
+  // Agregamos un efecto para detectar cambios de ruta
+  useEffect(() => {
+    // Función para manejar cambios de ruta
+    const handleRouteChange = (url: string) => {
+      // Si la navegación es hacia la sección de proyectos, no hacemos nada especial
+      // porque el componente Projects ya maneja su propio estado de carga
+    };
+
+    // Registramos los event listeners
+    router.events.on('routeChangeStart', handleRouteChange);
+    
+    // Limpieza al desmontar
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router]);
 
   return (
     <div className={`flex flex-col min-h-screen ${isProjectsPage ? 'projects-layout' : ''}`}>

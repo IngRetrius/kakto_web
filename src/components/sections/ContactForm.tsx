@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '@/components/ui/Button';
+import emailjs from '@emailjs/browser';
 
 interface ContactFormProps {
   className?: string;
@@ -28,20 +29,33 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    console.log("Formulario enviado", formData);
+    
     setFormStatus({
       isSubmitting: true,
       isSubmitted: false,
       error: null
     });
 
-    try {
-      // Aquí iría la lógica real de envío de formulario
-      console.log('Formulario enviado:', formData);
-      
-      // Simulamos una respuesta exitosa
-      await new Promise(resolve => setTimeout(resolve, 1000));
+    // Agregamos fecha y año para la plantilla
+    const templateParams = {
+      ...formData,
+      fecha: new Date().toLocaleString(),
+      year: new Date().getFullYear().toString()
+    };
+
+    // MÉTODO DIRECTO - Reemplaza el envío anterior
+    emailjs.send(
+      'service_24hxceo',
+      'template_contact',
+      templateParams,
+      'gLpQGSpLCrFU1czDe'
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
       
       setFormStatus({
         isSubmitting: false,
@@ -49,7 +63,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         error: null
       });
       
-      // Resetear el formulario
+      // Resetear formulario
       setFormData({
         name: '',
         email: '',
@@ -57,13 +71,16 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
         subject: '',
         message: ''
       });
-    } catch (_error) {
+    })
+    .catch((err) => {
+      console.error('FAILED...', err);
+      
       setFormStatus({
         isSubmitting: false,
         isSubmitted: false,
-        error: 'Ocurrió un error al enviar el formulario. Por favor, inténtalo nuevamente.'
+        error: `Error al enviar: ${err.text || 'Problema desconocido'}`
       });
-    }
+    });
   };
 
   return (
@@ -149,10 +166,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '' }) => {
             className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e94c46] focus:border-transparent transition-all duration-300"
           >
             <option value="">Selecciona una opción</option>
-            <option value="proyecto_nuevo">Proyecto nuevo</option>
-            <option value="consulta">Consulta general</option>
-            <option value="colaboracion">Propuesta de colaboración</option>
-            <option value="otro">Otro</option>
+            <option value="Proyecto nuevo">Proyecto nuevo</option>
+            <option value="Consulta general">Consulta general</option>
+            <option value="Propuesta de colaboración">Propuesta de colaboración</option>
+            <option value="Otro">Otro</option>
           </select>
         </div>
 
