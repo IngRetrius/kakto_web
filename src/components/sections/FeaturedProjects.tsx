@@ -35,11 +35,12 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
               href={`/projects/${project.slug}`} 
               className={index === 0 ? "featured-item main" : "featured-item"}
             >
-              <div className="relative w-full aspect-[4/3]">
+              <div className="relative w-full aspect-[6/4]">
                 <Image
                   src={project.coverImage}
                   alt={project.title}
                   fill
+                  quality={100}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="featured-image object-cover"
                   priority={index === 0}
@@ -52,7 +53,7 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
+        <div className="mt-8 text-center">
           <Link href="/projects">
             <Button variant="outline" className="py-3 px-8">
               Ver todos los proyectos
