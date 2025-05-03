@@ -9,6 +9,7 @@ const projects: ProjectType[] = [
     coverImage: '/images/projects/project1.jpg',
     images: [
       '/images/projects/project1.jpg',
+      '/images/projects/project1-2.jpg',
     ],
     category: 'Comercial',
     excerpt: 'Torre de oficinas moderna con fachada acristalada y espacios colaborativos.',
@@ -130,7 +131,22 @@ const projects: ProjectType[] = [
     year: 2023,
     completed: true,
   },
-  
+  {
+    id: '8',
+    title: 'Centro Comunitario Nuevo Amanecer',
+    slug: 'centro-comunitario-nuevo-amanecer',
+    coverImage: '/images/projects/project8.jpg',
+    images: [
+      '/images/projects/project8.jpg',
+    ],
+    category: 'Público',
+    excerpt: 'Espacio cultural y recreativo para la comunidad con diseño sostenible.',
+    description: 'Centro comunitario que integra biblioteca, espacios para talleres y áreas recreativas. Diseñado con criterios de sostenibilidad, incluyendo sistemas de captación de agua pluvial y paneles solares.',
+    client: 'Municipio de Santa Clara',
+    location: 'Santa Clara',
+    year: 2023,
+    completed: true,
+  },
  
   
 ];

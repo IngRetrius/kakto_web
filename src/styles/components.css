@@ -193,3 +193,89 @@ label {
 .team-member-card:hover .team-member-image {
   border-color: var(--color-red);
 }
+
+.project-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: white;
+  animation: fadeIn 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .project-detail-container {
+    flex-direction: row;
+  }
+}
+
+.project-info-sidebar, .project-desc-sidebar {
+  background-color: white;
+  overflow-y: auto;
+}
+
+.project-detail-main {
+  background-color: white;
+  position: relative;
+  flex-grow: 1;
+  min-height: 60vh;
+}
+
+@media (min-width: 1024px) {
+  .project-detail-main {
+    min-height: auto;
+    height: 100%;
+  }
+}
+
+/* Estilos para la imagen principal */
+.project-detail-main img {
+  object-fit: contain !important;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* Estilos para la barra de miniaturas */
+.thumbnail-container {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #f9f9f9;
+}
+
+.thumbnail-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.thumbnail-container::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+
+.thumbnail-container::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 6px;
+}
+
+.thumbnail-image {
+  border-radius: 2px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.thumbnail-image:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
