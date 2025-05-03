@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import WhatsAppButton from '../ui/WhatsAppButton';
 import { useRouter } from 'next/router';
 
 interface LayoutProps {
@@ -42,6 +43,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       
       {/* El footer se mantendrá al final gracias a la estructura flex */}
       <Footer />
+      
+      {/* Añadimos el botón flotante de WhatsApp */}
+      <WhatsAppButton phoneNumber="+573182134982" />
     </div>
   );
 };
