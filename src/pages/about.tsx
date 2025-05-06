@@ -40,7 +40,7 @@ const AboutPage = () => {
               <div className="flex justify-center">
                 <div className="relative">
                   <Image 
-                    src="/images/about/team.jpg" 
+                    src="/images/about/team.png" 
                     alt="Equipo Kakto Arquitectos" 
                     width={500} 
                     height={350}

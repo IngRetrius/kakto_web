@@ -43,8 +43,7 @@ export default function Home({ featuredProjects }: HomeProps) {
               </Link>
             </div>
             <div className="md:w-1/2 relative h-96">
-              {/* Aquí se insertaría una imagen representativa del estudio */}
-              <div className="bg-gray-300 h-full w-full rounded-lg"></div>
+              <img src="/images/filosofia/filosofia.png" alt="Nuestra filosofía" className="h-full w-full object-cover rounded-lg" />
             </div>
           </div>
         </div>
